@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление API - LocalPlayer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                LocalPlayer API
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+                <a href="index.html#docs" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    Документация
+                </a>
+                <a href="api-manager.html" class="nav-link active">
+                    <i class="fas fa-key"></i>
+                    Управление API
+                </a>
+                <a href="index.html#reference" class="nav-link">
+                    <i class="fas fa-code"></i>
+                    Reference
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- API Manager Section -->
+    <section class="api-manager">
+        <div class="container">
+            <div class="manager-header">
+                <h1 class="gradient-text">
+                    <i class="fas fa-key"></i>
+                    Управление API ключами
+                </h1>
+                <p class="subtitle">Создавайте и управляйте вашими API ключами</p>
+            </div>
+
+            <!-- Create New API Key -->
+            <div class="create-api-section glass-card">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-plus-circle"></i>
+                        Создать новый API ключ
+                    </h2>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="networkUuid">
+                            <i class="fas fa-network-wired"></i>
+                            UUID сети
+                        </label>
+                        <input 
+                            type="text" 
+                            id="networkUuid" 
+                            class="glass-input" 
+                            placeholder="Например: 550e8400-e29b-41d4-a716-446655440000"
+                        >
+                        <span class="input-hint">Введите уникальный идентификатор вашей сети</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apiName">
+                            <i class="fas fa-tag"></i>
+                            Название ключа (опционально)
+                        </label>
+                        <input 
+                            type="text" 
+                            id="apiName" 
+                            class="glass-input" 
+                            placeholder="Например: Production API"
+                        >
+                        <span class="input-hint">Название для удобной идентификации</span>
+                    </div>
+                </div>
+
+                <button onclick="generateApiKey()" class="btn btn-primary btn-large">
+                    <i class="fas fa-magic"></i>
+                    Сгенерировать API ключ
+                </button>
+            </div>
+
+            <!-- API Keys List -->
+            <div class="api-keys-section glass-card">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-list"></i>
+                        Ваши API ключи
+                    </h2>
+                </div>
+                
+                <div id="apiKeysList" class="api-keys-list">
+                    <div class="empty-state">
+                        <i class="fas fa-key"></i>
+                        <p>У вас пока нет API ключей</p>
+                        <p class="empty-hint">Создайте первый ключ, чтобы начать работу с API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Key Details Modal -->
+    <div id="apiKeyModal" class="modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2>
+                    <i class="fas fa-info-circle"></i>
+                    Детали API ключа
+                </h2>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="api-key-display-large">
+                    <label>API ключ</label>
+                    <div class="key-display">
+                        <code id="modalApiKey"></code>
+                        <button class="icon-btn" onclick="copyToClipboard('modalApiKey')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="api-key-display-large">
+                    <label>Endpoint URL</label>
+                    <div class="key-display">
+                        <code id="modalEndpoint"></code>
+                        <button class="icon-btn" onclick="copyToClipboard('modalEndpoint')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>
+                        <i class="fas fa-cog"></i>
+                        Настройки
+                    </h3>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Активен</strong>
+                                <p>API ключ активен и может использоваться</p>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="apiActiveToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Лимит запросов</strong>
+                                <p>1000 запросов в час</p>
+                            </div>
+                        </div>
+                        <select class="glass-select">
+                            <option>100/час</option>
+                            <option selected>1000/час</option>
+                            <option>10000/час</option>
+                            <option>Без лимита</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <strong>Срок действия</strong>
+                                <p>Автоматическое удаление ключа</p>
+                            </div>
+                        </div>
+                        <select class="glass-select">
+                            <option>30 дней</option>
+                            <option>90 дней</option>
+                            <option selected>1 год</option>
+                            <option>Без срока</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                        Закрыть
+                    </button>
+                    <button class="btn btn-danger" onclick="deleteCurrentKey()">
+                        <i class="fas fa-trash"></i>
+                        Удалить ключ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+    <script src="api-manager.js"></script>
+</body>
+</html>

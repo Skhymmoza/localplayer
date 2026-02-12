@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalPlayer API - VPN для Android</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                LocalPlayer API
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+                <a href="#docs" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    Документация
+                </a>
+                <a href="api-manager.html" class="nav-link">
+                    <i class="fas fa-key"></i>
+                    Управление API
+                </a>
+                <a href="#reference" class="nav-link">
+                    <i class="fas fa-code"></i>
+                    Reference
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">LocalPlayer API</span>
+                </h1>
+                <p class="hero-subtitle">Мощное VPN решение для Android устройств</p>
+                <p class="hero-description">
+                    Современный API для создания защищенных виртуальных сетей на Android. 
+                    Аналог Radmin VPN и Hamachi с расширенными возможностями.
+                </p>
+                <div class="hero-buttons">
+                    <a href="api-manager.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Начать работу
+                    </a>
+                    <a href="#docs" class="btn btn-secondary">
+                        <i class="fas fa-book-open"></i>
+                        Документация
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Шифрование данных и защищенные соединения между устройствами</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Высокая скорость</h3>
+                    <p>Оптимизированная производительность для минимальной задержки</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Android Ready</h3>
+                    <p>Полная поддержка Android устройств всех версий</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Простой API</h3>
+                    <p>Легкая интеграция с вашими приложениями</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Мультиплеер</h3>
+                    <p>Поддержка множественных устройств в одной сети</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Мониторинг</h3>
+                    <p>Отслеживание статуса и производительности сети</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section id="docs" class="quick-start">
+        <div class="container">
+            <h2 class="section-title">Быстрый старт</h2>
+            <div class="steps-grid">
+                <div class="step-card glass-card">
+                    <div class="step-number">1</div>
+                    <h3>Получите API ключ</h3>
+                    <p>Перейдите в раздел управления API и сгенерируйте свой уникальный ключ</p>
+                </div>
+                <div class="step-card glass-card">
+                    <div class="step-number">2</div>
+                    <h3>Выберите SDK</h3>
+                    <p>Используйте Python, Java или JavaScript для интеграции</p>
+                </div>
+                <div class="step-card glass-card">
+                    <div class="step-number">3</div>
+                    <h3>Подключитесь</h3>
+                    <p>Начните создавать защищенные VPN соединения</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="code-examples">
+        <div class="container">
+            <h2 class="section-title">Примеры кода</h2>
+            
+            <!-- Language Tabs -->
+            <div class="language-tabs">
+                <button class="tab-btn active" data-lang="python">
+                    <i class="fab fa-python"></i>
+                    Python
+                </button>
+                <button class="tab-btn" data-lang="java">
+                    <i class="fab fa-java"></i>
+                    Java
+                </button>
+                <button class="tab-btn" data-lang="javascript">
+                    <i class="fab fa-js"></i>
+                    JavaScript
+                </button>
+            </div>
+
+            <!-- Code Content -->
+            <div class="code-content">
+                <!-- Python Examples -->
+                <div class="lang-content active" data-lang="python">
+                    <div class="code-examples-horizontal">
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-link"></i>
+                                    Подключение к сети
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-python">import requests
+
+API_KEY = "LP-a1b2c3d4f5h6"
+BASE_URL = "https://localplayer.vercel.app/api"
+
+def connect_to_network():
+    response = requests.post(
+        f"{BASE_URL}/{API_KEY}/connect",
+        json={
+            "device_id": "android_001",
+            "network_uuid": "550e8400-e29b"
+        }
+    )
+    return response.json()
+
+result = connect_to_network()
+print(f"IP: {result['assigned_ip']}")</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-list"></i>
+                                    Список устройств
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-python">def get_devices():
+    response = requests.get(
+        f"{BASE_URL}/{API_KEY}/devices"
+    )
+    return response.json()
+
+devices = get_devices()
+for device in devices['devices']:
+    print(f"{device['name']}: {device['ip']}")</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-plug"></i>
+                                    Отключение
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-python">def disconnect(device_id):
+    response = requests.post(
+        f"{BASE_URL}/{API_KEY}/disconnect",
+        json={"device_id": device_id}
+    )
+    return response.json()
+
+disconnect("android_001")</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Examples -->
+                <div class="lang-content" data-lang="java">
+                    <div class="code-examples-horizontal">
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-link"></i>
+                                    Подключение к сети
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-java">import java.net.http.*;
+import org.json.JSONObject;
+
+public class LocalPlayerAPI {
+    private static final String API_KEY = "LP-a1b2c3d4f5h6";
+    private static final String BASE_URL = 
+        "https://localplayer.vercel.app/api";
+    
+    public static JSONObject connect() {
+        HttpClient client = HttpClient.newHttpClient();
+        JSONObject body = new JSONObject();
+        body.put("device_id", "android_001");
+        body.put("network_uuid", "550e8400-e29b");
+        
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(BASE_URL + "/" + API_KEY + "/connect"))
+            .header("Content-Type", "application/json")
+            .POST(HttpRequest.BodyPublishers
+                .ofString(body.toString()))
+            .build();
+        
+        return new JSONObject(response.body());
+    }
+}</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-list"></i>
+                                    Список устройств
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-java">public static JSONObject getDevices() {
+    HttpClient client = HttpClient.newHttpClient();
+    
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(BASE_URL + "/" + API_KEY + "/devices"))
+        .GET()
+        .build();
+    
+    HttpResponse<String> response = client.send(
+        request, HttpResponse.BodyHandlers.ofString()
+    );
+    
+    return new JSONObject(response.body());
+}</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-plug"></i>
+                                    Отключение
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-java">public static void disconnect(String deviceId) {
+    JSONObject body = new JSONObject();
+    body.put("device_id", deviceId);
+    
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(BASE_URL + "/" + API_KEY + "/disconnect"))
+        .POST(HttpRequest.BodyPublishers
+            .ofString(body.toString()))
+        .build();
+    
+    client.send(request, 
+        HttpResponse.BodyHandlers.ofString());
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript Examples -->
+                <div class="lang-content" data-lang="javascript">
+                    <div class="code-examples-horizontal">
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-link"></i>
+                                    Подключение к сети
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-javascript">const API_KEY = 'LP-a1b2c3d4f5h6';
+const BASE_URL = 'https://localplayer.vercel.app/api';
+
+async function connectToNetwork() {
+    const response = await fetch(
+        `${BASE_URL}/${API_KEY}/connect`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                device_id: 'android_001',
+                network_uuid: '550e8400-e29b'
+            })
+        }
+    );
+    return await response.json();
+}
+
+connectToNetwork().then(result => {
+    console.log(`IP: ${result.assigned_ip}`);
+});</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-list"></i>
+                                    Список устройств
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-javascript">async function getDevices() {
+    const response = await fetch(
+        `${BASE_URL}/${API_KEY}/devices`
+    );
+    return await response.json();
+}
+
+getDevices().then(result => {
+    result.devices.forEach(device => {
+        console.log(`${device.name}: ${device.ip}`);
+    });
+});</code></pre>
+                        </div>
+
+                        <div class="code-block-wrapper glass-card">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-plug"></i>
+                                    Отключение
+                                </span>
+                                <button class="copy-code-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code class="language-javascript">async function disconnect(deviceId) {
+    const response = await fetch(
+        `${BASE_URL}/${API_KEY}/disconnect`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                device_id: deviceId
+            })
+        }
+    );
+    return await response.json();
+}
+
+disconnect('android_001');</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Reference -->
+    <section id="reference" class="api-reference">
+        <div class="container">
+            <h2 class="section-title">API Reference</h2>
+            <div class="endpoints-grid">
+                <div class="endpoint-card glass-card">
+                    <div class="endpoint-method post">POST</div>
+                    <div class="endpoint-info">
+                        <h3>/api/{API_KEY}/connect</h3>
+                        <p>Подключение устройства к VPN сети</p>
+                        <div class="endpoint-params">
+                            <strong>Параметры:</strong>
+                            <code>device_id</code>, <code>network_uuid</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="endpoint-card glass-card">
+                    <div class="endpoint-method get">GET</div>
+                    <div class="endpoint-info">
+                        <h3>/api/{API_KEY}/devices</h3>
+                        <p>Получение списка подключенных устройств</p>
+                    </div>
+                </div>
+
+                <div class="endpoint-card glass-card">
+                    <div class="endpoint-method post">POST</div>
+                    <div class="endpoint-info">
+                        <h3>/api/{API_KEY}/disconnect</h3>
+                        <p>Отключение устройства от сети</p>
+                        <div class="endpoint-params">
+                            <strong>Параметры:</strong>
+                            <code>device_id</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="endpoint-card glass-card">
+                    <div class="endpoint-method get">GET</div>
+                    <div class="endpoint-info">
+                        <h3>/api/{API_KEY}/status</h3>
+                        <p>Проверка статуса сети и соединения</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <i class="fas fa-network-wired"></i>
+                        LocalPlayer API
+                    </h3>
+                    <p>VPN решение нового поколения для Android устройств</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Ссылки</h4>
+                    <ul>
+                        <li><a href="#docs">Документация</a></li>
+                        <li><a href="api-manager.html">Управление API</a></li>
+                        <li><a href="#reference">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>localplayer.vercel.app</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LocalPlayer API. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
