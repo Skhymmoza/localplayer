@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы - LocalPlayer API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                LocalPlayer API
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a>
+                <a href="features.html" class="nav-link"><i class="fas fa-star"></i> Возможности</a>
+                <a href="docs.html" class="nav-link"><i class="fas fa-book"></i> Документация</a>
+                <a href="api-manager.html" class="nav-link"><i class="fas fa-key"></i> API Manager</a>
+                <a href="pricing.html" class="nav-link active"><i class="fas fa-tag"></i> Тарифы</a>
+                <a href="support.html" class="nav-link"><i class="fas fa-life-ring"></i> Поддержка</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="gradient-text">Прозрачные тарифы</h1>
+            <p>Выберите план, который подходит вашему проекту</p>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <div class="pricing-card glass-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="pricing-price">
+                            <span class="price">$0</span>
+                            <span class="period">/месяц</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 100 запросов/час</li>
+                        <li><i class="fas fa-check"></i> До 10 устройств</li>
+                        <li><i class="fas fa-check"></i> Базовая поддержка</li>
+                        <li><i class="fas fa-check"></i> 7 дней истории</li>
+                        <li><i class="fas fa-times"></i> Приоритетная поддержка</li>
+                        <li><i class="fas fa-times"></i> Webhooks</li>
+                    </ul>
+                    <a href="api-manager.html" class="btn btn-secondary btn-large">Начать бесплатно</a>
+                </div>
+
+                <div class="pricing-card glass-card featured">
+                    <div class="popular-badge">Популярный</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">
+                            <span class="price">$29</span>
+                            <span class="period">/месяц</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10,000 запросов/час</li>
+                        <li><i class="fas fa-check"></i> До 1000 устройств</li>
+                        <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
+                        <li><i class="fas fa-check"></i> 90 дней истории</li>
+                        <li><i class="fas fa-check"></i> Webhooks</li>
+                        <li><i class="fas fa-check"></i> Аналитика</li>
+                    </ul>
+                    <a href="api-manager.html" class="btn btn-primary btn-large">Выбрать Pro</a>
+                </div>
+
+                <div class="pricing-card glass-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price">Custom</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Неограниченные запросы</li>
+                        <li><i class="fas fa-check"></i> Неограниченные устройства</li>
+                        <li><i class="fas fa-check"></i> 24/7 поддержка</li>
+                        <li><i class="fas fa-check"></i> Неограниченная история</li>
+                        <li><i class="fas fa-check"></i> SLA 99.99%</li>
+                        <li><i class="fas fa-check"></i> Выделенные серверы</li>
+                    </ul>
+                    <a href="support.html" class="btn btn-secondary btn-large">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-network-wired"></i> LocalPlayer API</h3>
+                    <p>Современное VPN решение для Android приложений</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LocalPlayer API. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

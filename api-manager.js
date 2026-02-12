@@ -1,8 +1,6 @@
-// API Keys storage
 let apiKeys = [];
 let currentKeyId = null;
 
-// Load API keys from localStorage
 function loadApiKeys() {
     const stored = localStorage.getItem('localplayer_api_keys');
     if (stored) {
@@ -11,12 +9,10 @@ function loadApiKeys() {
     }
 }
 
-// Save API keys to localStorage
 function saveApiKeys() {
     localStorage.setItem('localplayer_api_keys', JSON.stringify(apiKeys));
 }
 
-// Generate UUID without dashes
 function generateUUID() {
     const chars = 'abcdef0123456789';
     let uuid = '';
@@ -26,7 +22,6 @@ function generateUUID() {
     return uuid;
 }
 
-// Generate API Key
 function generateApiKey() {
     const networkUuidInput = document.getElementById('networkUuid');
     const apiNameInput = document.getElementById('apiName');
@@ -34,24 +29,20 @@ function generateApiKey() {
     const networkUuid = networkUuidInput.value.trim();
     const apiName = apiNameInput.value.trim() || 'Без названия';
     
-    // Validation
     if (!networkUuid) {
         showToast('Пожалуйста, введите UUID сети', 'error');
         return;
     }
     
-    // UUID validation (basic)
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     if (!uuidRegex.test(networkUuid)) {
         showToast('Неверный формат UUID. Пример: 550e8400-e29b-41d4-a716-446655440000', 'error');
         return;
     }
     
-    // Generate API key
     const randomUuid = generateUUID();
     const apiKey = `LP-${randomUuid}`;
     
-    // Create API key object
     const newKey = {
         id: Date.now().toString(),
         key: apiKey,
@@ -63,25 +54,20 @@ function generateApiKey() {
         expiresIn: '1 год'
     };
     
-    // Add to array
     apiKeys.push(newKey);
     saveApiKeys();
     renderApiKeys();
     
-    // Clear inputs
     networkUuidInput.value = '';
     apiNameInput.value = '';
     
-    // Show success
     showToast('API ключ успешно создан!', 'success');
     
-    // Scroll to keys list
     setTimeout(() => {
         document.querySelector('.api-keys-section').scrollIntoView({ behavior: 'smooth' });
     }, 500);
 }
 
-// Render API Keys List
 function renderApiKeys() {
     const container = document.getElementById('apiKeysList');
     
@@ -125,9 +111,7 @@ function renderApiKeys() {
     `).join('');
 }
 
-// Copy to Clipboard
 function copyToClipboard(text) {
-    // If text is an element ID, get the text content
     if (typeof text === 'string' && !text.startsWith('LP-')) {
         const element = document.getElementById(text);
         if (element) {
@@ -139,33 +123,27 @@ function copyToClipboard(text) {
         showToast('Скопировано в буфер обмена', 'success');
     }).catch(err => {
         showToast('Ошибка при копировании', 'error');
-        console.error('Copy failed:', err);
     });
 }
 
-// View Key Details
 function viewKeyDetails(keyId) {
     const key = apiKeys.find(k => k.id === keyId);
     if (!key) return;
     
     currentKeyId = keyId;
     
-    // Populate modal
     document.getElementById('modalApiKey').textContent = key.key;
-    document.getElementById('modalEndpoint').textContent = `https://localplayer.vercel.app/api/${key.key}`;
+    document.getElementById('modalEndpoint').textContent = `https://localplayer-tau.vercel.app/api/${key.key}`;
     document.getElementById('apiActiveToggle').checked = key.isActive;
     
-    // Show modal
     document.getElementById('apiKeyModal').classList.add('active');
 }
 
-// Close Modal
 function closeModal() {
     document.getElementById('apiKeyModal').classList.remove('active');
     currentKeyId = null;
 }
 
-// Delete Current Key
 function deleteCurrentKey() {
     if (!currentKeyId) return;
     
@@ -175,7 +153,6 @@ function deleteCurrentKey() {
     }
 }
 
-// Delete Key
 function deleteKey(keyId) {
     const index = apiKeys.findIndex(k => k.id === keyId);
     if (index !== -1) {
@@ -186,7 +163,6 @@ function deleteKey(keyId) {
     }
 }
 
-// Toggle API Key Active Status
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('apiActiveToggle');
     if (toggle) {
@@ -202,10 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
-
-// Close modal on outside click
-document.addEventListener('DOMContentLoaded', () => {
+    
     const modal = document.getElementById('apiKeyModal');
     if (modal) {
         modal.addEventListener('click', (e) => {
@@ -214,17 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
-
-// Close modal on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Enter key to generate API
-document.addEventListener('DOMContentLoaded', () => {
+    
     const networkUuidInput = document.getElementById('networkUuid');
     const apiNameInput = document.getElementById('apiName');
     
@@ -243,9 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    loadApiKeys();
 });
 
-// Load API keys on page load
-document.addEventListener('DOMContentLoaded', () => {
-    loadApiKeys();
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
 });

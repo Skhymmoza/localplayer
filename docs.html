@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация - LocalPlayer API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                LocalPlayer API
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+                <a href="features.html" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    Возможности
+                </a>
+                <a href="docs.html" class="nav-link active">
+                    <i class="fas fa-book"></i>
+                    Документация
+                </a>
+                <a href="api-manager.html" class="nav-link">
+                    <i class="fas fa-key"></i>
+                    API Manager
+                </a>
+                <a href="pricing.html" class="nav-link">
+                    <i class="fas fa-tag"></i>
+                    Тарифы
+                </a>
+                <a href="support.html" class="nav-link">
+                    <i class="fas fa-life-ring"></i>
+                    Поддержка
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-container">
+        <!-- Sidebar -->
+        <aside class="docs-sidebar glass-card">
+            <nav class="docs-nav">
+                <div class="docs-nav-section">
+                    <h3>Начало работы</h3>
+                    <a href="#getting-started" class="docs-nav-link active">Быстрый старт</a>
+                    <a href="#authentication" class="docs-nav-link">Аутентификация</a>
+                    <a href="#base-url" class="docs-nav-link">Base URL</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h3>API Reference</h3>
+                    <a href="#connect" class="docs-nav-link">Подключение</a>
+                    <a href="#disconnect" class="docs-nav-link">Отключение</a>
+                    <a href="#devices" class="docs-nav-link">Список устройств</a>
+                    <a href="#status" class="docs-nav-link">Статус сети</a>
+                    <a href="#settings" class="docs-nav-link">Настройки</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h3>SDK</h3>
+                    <a href="#python-sdk" class="docs-nav-link">Python</a>
+                    <a href="#java-sdk" class="docs-nav-link">Java</a>
+                    <a href="#js-sdk" class="docs-nav-link">JavaScript</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h3>Дополнительно</h3>
+                    <a href="#errors" class="docs-nav-link">Коды ошибок</a>
+                    <a href="#rate-limits" class="docs-nav-link">Rate Limits</a>
+                    <a href="#webhooks" class="docs-nav-link">Webhooks</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="docs-content">
+            <section id="getting-started" class="docs-section">
+                <h1>Документация LocalPlayer API</h1>
+                <p class="lead">Добро пожаловать в официальную документацию LocalPlayer API. Здесь вы найдете все необходимое для интеграции VPN функциональности в ваше приложение.</p>
+
+                <div class="info-box glass-card">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Требования</strong>
+                        <p>Для работы с API вам понадобится API ключ. Получите его в <a href="api-manager.html">API Manager</a>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="authentication" class="docs-section">
+                <h2>Аутентификация</h2>
+                <p>Все запросы к API должны включать ваш API ключ в URL:</p>
+                <div class="code-block-wrapper glass-card">
+                    <div class="code-header">
+                        <span class="code-title">
+                            <i class="fas fa-key"></i>
+                            Формат запроса
+                        </span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code class="language-bash">https://localplayer-tau.vercel.app/api/{YOUR_API_KEY}/endpoint</code></pre>
+                </div>
+            </section>
+
+            <section id="base-url" class="docs-section">
+                <h2>Base URL</h2>
+                <div class="code-block-wrapper glass-card">
+                    <div class="code-header">
+                        <span class="code-title">
+                            <i class="fas fa-globe"></i>
+                            Production
+                        </span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code class="language-bash">https://localplayer-tau.vercel.app/api</code></pre>
+                </div>
+            </section>
+
+            <section id="connect" class="docs-section">
+                <h2>POST /api/{API_KEY}/connect</h2>
+                <p>Подключить устройство к VPN сети</p>
+
+                <h3>Параметры запроса</h3>
+                <div class="params-table glass-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Параметр</th>
+                                <th>Тип</th>
+                                <th>Обязательный</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>device_id</code></td>
+                                <td>string</td>
+                                <td>Да</td>
+                                <td>Уникальный идентификатор устройства</td>
+                            </tr>
+                            <tr>
+                                <td><code>network_uuid</code></td>
+                                <td>string</td>
+                                <td>Да</td>
+                                <td>UUID сети для подключения</td>
+                            </tr>
+                            <tr>
+                                <td><code>device_name</code></td>
+                                <td>string</td>
+                                <td>Нет</td>
+                                <td>Человекочитаемое имя устройства</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Примеры</h3>
+                <div class="code-examples-grid">
+                    <div class="code-block-wrapper glass-card">
+                        <div class="code-header">
+                            <span class="code-title">
+                                <i class="fab fa-python"></i>
+                                Python
+                            </span>
+                            <button class="copy-code-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre><code class="language-python">import requests
+
+API_KEY = "LP-a1b2c3d4f5h6"
+response = requests.post(
+    f"https://localplayer-tau.vercel.app/api/{API_KEY}/connect",
+    json={
+        "device_id": "android_001",
+        "network_uuid": "550e8400-e29b-41d4",
+        "device_name": "My Phone"
+    }
+)
+print(response.json())</code></pre>
+                    </div>
+
+                    <div class="code-block-wrapper glass-card">
+                        <div class="code-header">
+                            <span class="code-title">
+                                <i class="fab fa-js"></i>
+                                JavaScript
+                            </span>
+                            <button class="copy-code-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre><code class="language-javascript">const API_KEY = 'LP-a1b2c3d4f5h6';
+const response = await fetch(
+    `https://localplayer-tau.vercel.app/api/${API_KEY}/connect`,
+    {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            device_id: 'android_001',
+            network_uuid: '550e8400-e29b-41d4',
+            device_name: 'My Phone'
+        })
+    }
+);
+const data = await response.json();</code></pre>
+                    </div>
+                </div>
+
+                <h3>Ответ</h3>
+                <div class="code-block-wrapper glass-card">
+                    <div class="code-header">
+                        <span class="code-title">
+                            <i class="fas fa-check"></i>
+                            200 OK
+                        </span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code class="language-json">{
+  "status": "connected",
+  "device_id": "android_001",
+  "assigned_ip": "10.0.0.5",
+  "network_uuid": "550e8400-e29b-41d4",
+  "connected_at": "2026-02-12T10:30:00Z",
+  "gateway": "10.0.0.1",
+  "dns_servers": ["1.1.1.1", "8.8.8.8"]
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="disconnect" class="docs-section">
+                <h2>POST /api/{API_KEY}/disconnect</h2>
+                <p>Отключить устройство от VPN сети</p>
+
+                <div class="code-examples-grid">
+                    <div class="code-block-wrapper glass-card">
+                        <div class="code-header">
+                            <span class="code-title">
+                                <i class="fab fa-python"></i>
+                                Python
+                            </span>
+                            <button class="copy-code-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre><code class="language-python">response = requests.post(
+    f"https://localplayer-tau.vercel.app/api/{API_KEY}/disconnect",
+    json={"device_id": "android_001"}
+)
+print(response.json())</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="devices" class="docs-section">
+                <h2>GET /api/{API_KEY}/devices</h2>
+                <p>Получить список всех подключенных устройств в сети</p>
+
+                <div class="code-examples-grid">
+                    <div class="code-block-wrapper glass-card">
+                        <div class="code-header">
+                            <span class="code-title">
+                                <i class="fab fa-python"></i>
+                                Python
+                            </span>
+                            <button class="copy-code-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre><code class="language-python">response = requests.get(
+    f"https://localplayer-tau.vercel.app/api/{API_KEY}/devices"
+)
+devices = response.json()
+for device in devices['devices']:
+    print(f"{device['name']}: {device['ip']}")</code></pre>
+                    </div>
+                </div>
+
+                <h3>Ответ</h3>
+                <div class="code-block-wrapper glass-card">
+                    <div class="code-header">
+                        <span class="code-title">200 OK</span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code class="language-json">{
+  "devices": [
+    {
+      "device_id": "android_001",
+      "name": "My Phone",
+      "ip": "10.0.0.5",
+      "status": "online",
+      "connected_at": "2026-02-12T10:30:00Z",
+      "last_seen": "2026-02-12T12:15:00Z",
+      "bytes_sent": 1048576,
+      "bytes_received": 2097152
+    }
+  ],
+  "total": 1
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="status" class="docs-section">
+                <h2>GET /api/{API_KEY}/status</h2>
+                <p>Проверить статус сети и API ключа</p>
+
+                <div class="code-block-wrapper glass-card">
+                    <div class="code-header">
+                        <span class="code-title">Запрос</span>
+                        <button class="copy-code-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <pre><code class="language-bash">curl https://localplayer-tau.vercel.app/api/LP-a1b2c3d4f5h6/status</code></pre>
+                </div>
+            </section>
+
+            <section id="errors" class="docs-section">
+                <h2>Коды ошибок</h2>
+                <div class="error-codes-table glass-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Код</th>
+                                <th>Описание</th>
+                                <th>Решение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>400</code></td>
+                                <td>Bad Request</td>
+                                <td>Проверьте параметры запроса</td>
+                            </tr>
+                            <tr>
+                                <td><code>401</code></td>
+                                <td>Unauthorized</td>
+                                <td>Неверный API ключ</td>
+                            </tr>
+                            <tr>
+                                <td><code>429</code></td>
+                                <td>Too Many Requests</td>
+                                <td>Превышен лимит запросов</td>
+                            </tr>
+                            <tr>
+                                <td><code>500</code></td>
+                                <td>Server Error</td>
+                                <td>Повторите запрос позже</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="rate-limits" class="docs-section">
+                <h2>Rate Limits</h2>
+                <p>Лимиты запросов зависят от вашего тарифного плана:</p>
+                <div class="rate-limits-grid">
+                    <div class="rate-limit-card glass-card">
+                        <h3>Free</h3>
+                        <div class="rate-limit-value">100/час</div>
+                        <p>Идеально для тестирования</p>
+                    </div>
+                    <div class="rate-limit-card glass-card">
+                        <h3>Pro</h3>
+                        <div class="rate-limit-value">10,000/час</div>
+                        <p>Для продакшн приложений</p>
+                    </div>
+                    <div class="rate-limit-card glass-card">
+                        <h3>Enterprise</h3>
+                        <div class="rate-limit-value">Безлимит</div>
+                        <p>Для крупных проектов</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

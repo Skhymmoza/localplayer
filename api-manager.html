@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Управление API - LocalPlayer</title>
+    <title>API Manager - LocalPlayer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="glass-background"></div>
     
-    <!-- Navigation Bar -->
     <nav class="navbar glass-nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -18,27 +17,16 @@
                 LocalPlayer API
             </div>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    Главная
-                </a>
-                <a href="index.html#docs" class="nav-link">
-                    <i class="fas fa-book"></i>
-                    Документация
-                </a>
-                <a href="api-manager.html" class="nav-link active">
-                    <i class="fas fa-key"></i>
-                    Управление API
-                </a>
-                <a href="index.html#reference" class="nav-link">
-                    <i class="fas fa-code"></i>
-                    Reference
-                </a>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a>
+                <a href="features.html" class="nav-link"><i class="fas fa-star"></i> Возможности</a>
+                <a href="docs.html" class="nav-link"><i class="fas fa-book"></i> Документация</a>
+                <a href="api-manager.html" class="nav-link active"><i class="fas fa-key"></i> API Manager</a>
+                <a href="pricing.html" class="nav-link"><i class="fas fa-tag"></i> Тарифы</a>
+                <a href="support.html" class="nav-link"><i class="fas fa-life-ring"></i> Поддержка</a>
             </div>
         </div>
     </nav>
 
-    <!-- API Manager Section -->
     <section class="api-manager">
         <div class="container">
             <div class="manager-header">
@@ -49,13 +37,9 @@
                 <p class="subtitle">Создавайте и управляйте вашими API ключами</p>
             </div>
 
-            <!-- Create New API Key -->
             <div class="create-api-section glass-card">
                 <div class="section-header">
-                    <h2>
-                        <i class="fas fa-plus-circle"></i>
-                        Создать новый API ключ
-                    </h2>
+                    <h2><i class="fas fa-plus-circle"></i> Создать новый API ключ</h2>
                 </div>
                 
                 <div class="form-grid">
@@ -94,13 +78,9 @@
                 </button>
             </div>
 
-            <!-- API Keys List -->
             <div class="api-keys-section glass-card">
                 <div class="section-header">
-                    <h2>
-                        <i class="fas fa-list"></i>
-                        Ваши API ключи
-                    </h2>
+                    <h2><i class="fas fa-list"></i> Ваши API ключи</h2>
                 </div>
                 
                 <div id="apiKeysList" class="api-keys-list">
@@ -114,14 +94,10 @@
         </div>
     </section>
 
-    <!-- API Key Details Modal -->
     <div id="apiKeyModal" class="modal">
         <div class="modal-content glass-card">
             <div class="modal-header">
-                <h2>
-                    <i class="fas fa-info-circle"></i>
-                    Детали API ключа
-                </h2>
+                <h2><i class="fas fa-info-circle"></i> Детали API ключа</h2>
                 <button class="modal-close" onclick="closeModal()">
                     <i class="fas fa-times"></i>
                 </button>
@@ -149,10 +125,7 @@
                 </div>
 
                 <div class="settings-section">
-                    <h3>
-                        <i class="fas fa-cog"></i>
-                        Настройки
-                    </h3>
+                    <h3><i class="fas fa-cog"></i> Настройки</h3>
                     
                     <div class="setting-item">
                         <div class="setting-info">
@@ -215,7 +188,6 @@
         </div>
     </div>
 
-    <!-- Toast Notifications Container -->
     <div id="toast-container"></div>
 
     <script src="script.js"></script>

@@ -24,11 +24,12 @@ function showToast(message, type = 'success') {
     
     container.appendChild(toast);
     
-    // Auto remove after 3 seconds
     setTimeout(() => {
         toast.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => {
-            container.removeChild(toast);
+            if (container.contains(toast)) {
+                container.removeChild(toast);
+            }
         }, 300);
     }, 3000);
 }
@@ -42,13 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const targetLang = button.dataset.lang;
             
-            // Remove active class from all tabs and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
             langContents.forEach(content => content.classList.remove('active'));
             
-            // Add active class to clicked tab and corresponding content
             button.classList.add('active');
-            document.querySelector(`.lang-content[data-lang="${targetLang}"]`).classList.add('active');
+            const targetContent = document.querySelector(`.lang-content[data-lang="${targetLang}"]`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
         });
     });
 });
@@ -81,7 +83,7 @@ function copyCode(button) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href !== '#') {
+        if (href !== '#' && href.length > 1) {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
@@ -111,7 +113,7 @@ window.addEventListener('scroll', () => {
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        if (link.getAttribute('href') && link.getAttribute('href').includes(current)) {
             link.classList.add('active');
         }
     });
@@ -155,4 +157,26 @@ document.addEventListener('mousemove', (e) => {
         const offsetY = mouseY * 30;
         background.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
+});
+
+// Docs Navigation
+document.addEventListener('DOMContentLoaded', () => {
+    const docsLinks = document.querySelectorAll('.docs-nav-link');
+    
+    docsLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                docsLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
 });

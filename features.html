@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Возможности - LocalPlayer API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                LocalPlayer API
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+                <a href="features.html" class="nav-link active">
+                    <i class="fas fa-star"></i>
+                    Возможности
+                </a>
+                <a href="docs.html" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    Документация
+                </a>
+                <a href="api-manager.html" class="nav-link">
+                    <i class="fas fa-key"></i>
+                    API Manager
+                </a>
+                <a href="pricing.html" class="nav-link">
+                    <i class="fas fa-tag"></i>
+                    Тарифы
+                </a>
+                <a href="support.html" class="nav-link">
+                    <i class="fas fa-life-ring"></i>
+                    Поддержка
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="gradient-text">Мощные возможности для ваших проектов</h1>
+            <p>LocalPlayer API предоставляет все необходимые инструменты для создания защищенных VPN сетей</p>
+        </div>
+    </section>
+
+    <!-- Security Features -->
+    <section id="security" class="features-detail">
+        <div class="container">
+            <div class="feature-detail-header">
+                <div class="feature-detail-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <h2>Безопасность</h2>
+                    <p>Защита корпоративного уровня для ваших данных</p>
+                </div>
+            </div>
+
+            <div class="feature-cards-grid">
+                <div class="detail-card glass-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>AES-256 шифрование</h3>
+                    <p>Все данные шифруются с использованием военного стандарта AES-256</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3>Защита от DDoS</h3>
+                    <p>Автоматическая защита от распределенных атак и перегрузок</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Двухфакторная аутентификация</h3>
+                    <p>Дополнительный уровень защиты для критичных операций</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-eye-slash"></i>
+                    <h3>Zero-logging политика</h3>
+                    <p>Мы не храним логи активности пользователей</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Ротация ключей</h3>
+                    <p>Автоматическая ротация шифровальных ключей для повышения безопасности</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Обнаружение угроз</h3>
+                    <p>AI-система мониторинга подозрительной активности в реальном времени</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Features -->
+    <section id="performance" class="features-detail">
+        <div class="container">
+            <div class="feature-detail-header">
+                <div class="feature-detail-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div>
+                    <h2>Производительность</h2>
+                    <p>Максимальная скорость и минимальная задержка</p>
+                </div>
+            </div>
+
+            <div class="feature-cards-grid">
+                <div class="detail-card glass-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Глобальная CDN</h3>
+                    <p>Серверы в 50+ городах мира для минимальной задержки</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-route"></i>
+                    <h3>Умная маршрутизация</h3>
+                    <p>Автоматический выбор оптимального пути передачи данных</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-compress"></i>
+                    <h3>Сжатие данных</h3>
+                    <p>Уменьшение объема трафика до 60% без потери качества</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Load Balancing</h3>
+                    <p>Автоматическое распределение нагрузки между серверами</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-memory"></i>
+                    <h3>Оптимизация памяти</h3>
+                    <p>Эффективное использование ресурсов устройства</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>HTTP/3 & QUIC</h3>
+                    <p>Поддержка современных протоколов для максимальной скорости</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Features -->
+    <section id="analytics" class="features-detail">
+        <div class="container">
+            <div class="feature-detail-header">
+                <div class="feature-detail-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <h2>Аналитика и мониторинг</h2>
+                    <p>Полный контроль над вашей сетью</p>
+                </div>
+            </div>
+
+            <div class="feature-cards-grid">
+                <div class="detail-card glass-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Детальная статистика</h3>
+                    <p>Графики использования трафика, времени подключения и активности</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Мониторинг в реальном времени</h3>
+                    <p>Отслеживание активных соединений и производительности сети</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Отчеты и экспорт</h3>
+                    <p>Автоматические отчеты в PDF, CSV и JSON форматах</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Алерты и уведомления</h3>
+                    <p>Мгновенные оповещения о важных событиях</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Геолокация</h3>
+                    <p>Визуализация расположения подключенных устройств на карте</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-database"></i>
+                    <h3>История активности</h3>
+                    <p>Хранение истории за последние 90 дней</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scalability Features -->
+    <section id="scalability" class="features-detail">
+        <div class="container">
+            <div class="feature-detail-header">
+                <div class="feature-detail-icon">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </div>
+                <div>
+                    <h2>Масштабируемость</h2>
+                    <p>Растите вместе с вашим бизнесом</p>
+                </div>
+            </div>
+
+            <div class="feature-cards-grid">
+                <div class="detail-card glass-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Автоматическое масштабирование</h3>
+                    <p>Система автоматически добавляет ресурсы при росте нагрузки</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Неограниченные устройства</h3>
+                    <p>Поддержка от 10 до 100,000+ одновременных подключений</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Множественные сети</h3>
+                    <p>Создавайте несколько изолированных VPN сетей</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>API Rate Limiting</h3>
+                    <p>Гибкие лимиты запросов: от 1K до 1M в час</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Облачная инфраструктура</h3>
+                    <p>Базируется на AWS/GCP для максимальной надежности</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Webhook интеграции</h3>
+                    <p>Интеграция с вашими системами через webhooks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Features -->
+    <section class="features-detail">
+        <div class="container">
+            <div class="feature-detail-header">
+                <div class="feature-detail-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <h2>Инструменты для разработчиков</h2>
+                    <p>Все что нужно для быстрой интеграции</p>
+                </div>
+            </div>
+
+            <div class="feature-cards-grid">
+                <div class="detail-card glass-card">
+                    <i class="fab fa-python"></i>
+                    <h3>SDK для Python</h3>
+                    <p>Официальная библиотека с полной поддержкой всех функций API</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fab fa-java"></i>
+                    <h3>SDK для Java/Android</h3>
+                    <p>Нативная интеграция для Android приложений</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fab fa-js"></i>
+                    <h3>SDK для JavaScript</h3>
+                    <p>Поддержка Node.js и браузерных приложений</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Подробная документация</h3>
+                    <p>Примеры кода, туториалы и best practices</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-vial"></i>
+                    <h3>Sandbox окружение</h3>
+                    <p>Тестируйте API без влияния на продакшн</p>
+                </div>
+                <div class="detail-card glass-card">
+                    <i class="fas fa-plug"></i>
+                    <h3>REST API</h3>
+                    <p>Стандартный RESTful API с JSON ответами</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Сравнение с конкурентами</h2>
+            <div class="comparison-table-wrapper glass-card">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>LocalPlayer</th>
+                            <th>Radmin VPN</th>
+                            <th>Hamachi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Android поддержка</td>
+                            <td><i class="fas fa-check success"></i> Полная</td>
+                            <td><i class="fas fa-times error"></i> Нет</td>
+                            <td><i class="fas fa-minus warning"></i> Ограниченная</td>
+                        </tr>
+                        <tr>
+                            <td>API для разработчиков</td>
+                            <td><i class="fas fa-check success"></i> Да</td>
+                            <td><i class="fas fa-times error"></i> Нет</td>
+                            <td><i class="fas fa-times error"></i> Нет</td>
+                        </tr>
+                        <tr>
+                            <td>Максимум устройств</td>
+                            <td><i class="fas fa-check success"></i> Неограниченно</td>
+                            <td><i class="fas fa-minus warning"></i> До 100</td>
+                            <td><i class="fas fa-minus warning"></i> До 256</td>
+                        </tr>
+                        <tr>
+                            <td>Облачная инфраструктура</td>
+                            <td><i class="fas fa-check success"></i> Да</td>
+                            <td><i class="fas fa-times error"></i> Нет</td>
+                            <td><i class="fas fa-check success"></i> Да</td>
+                        </tr>
+                        <tr>
+                            <td>Аналитика и отчеты</td>
+                            <td><i class="fas fa-check success"></i> Да</td>
+                            <td><i class="fas fa-times error"></i> Нет</td>
+                            <td><i class="fas fa-minus warning"></i> Базовая</td>
+                        </tr>
+                        <tr>
+                            <td>Поддержка 24/7</td>
+                            <td><i class="fas fa-check success"></i> Да</td>
+                            <td><i class="fas fa-minus warning"></i> Email</td>
+                            <td><i class="fas fa-minus warning"></i> Email</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content glass-card">
+                <h2>Попробуйте все возможности бесплатно</h2>
+                <p>Получите полный доступ к API на 14 дней без привязки карты</p>
+                <a href="api-manager.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-rocket"></i>
+                    Начать бесплатно
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <i class="fas fa-network-wired"></i>
+                        LocalPlayer API
+                    </h3>
+                    <p>Современное VPN решение для Android приложений</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Продукт</h4>
+                    <ul>
+                        <li><a href="features.html">Возможности</a></li>
+                        <li><a href="pricing.html">Тарифы</a></li>
+                        <li><a href="docs.html">Документация</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="support.html">Поддержка</a></li>
+                        <li><a href="#">Статус</a></li>
+                        <li><a href="#">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>localplayer-tau.vercel.app</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LocalPlayer API. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
